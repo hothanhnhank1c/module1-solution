@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app.js"></script>
     <style>
       .message { font-size: 1.3em; font-weight: bold; }
     </style>
   </head>
-<body>
-   <div class="container" ng-app="myApp" ng-controller="myCtrl">
+<body ng-app="myApp" ng-controller="LunchCheckController">
+   <div class="container">
      <h1>Lunch Checker</h1>
 
          <div class="form-group">
@@ -25,23 +26,5 @@
            {{message}}
          </div>
    </div>
-   <script>
-    var app = angular.module('myApp', []);
-    app.controller('myCtrl', function($scope) {
-      $scope.submitForm = function () {
-            if($scope.lunchMenu !== ''){
-                $scope.listMenu = $scope.lunchMenu.split(',');
-                if($scope.listMenu.length <= 3){
-                    $scope.message = 'Enjoy!'
-                }else{
-                    $scope.message = 'Too much!'
-                }
-            }else{
-                $scope.message = 'Please enter data first'
-            }
-            
-        };
-    });
-    </script>
 </body>
 </html>
